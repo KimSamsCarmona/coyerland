@@ -1,11 +1,12 @@
-export const load = ({ locals }) => {
-   if (locals.user) {
-      return {
-         user: locals.user
-      }
-   }
+// export const prerender = false;
+export const load = async ({ locals }) => {
+	if (locals.user) {
+		return {
+			user: locals.user
+		};
+	}
 
-   return {
-      user: undefined
-   }
-}
+	return {
+		user: undefined
+	};
+};

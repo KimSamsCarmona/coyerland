@@ -7,6 +7,11 @@
 		Reset Your Password
 	</h2>
 	<p class="text-center mt-1">We'll send you a link to reset your password.</p>
+	<p class="text-center mt-1">
+		Or <a href="/register" class="text-primary font-medium hover:cursor-pointer hover:underline"
+			>register</a
+		> if you don't have an account.
+	</p>
 	<form
 		action="?/resetPassword"
 		method="POST"
@@ -37,7 +42,10 @@
 							d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
 						/></svg
 					>
-					<span>An email has been sent to reset your password.</span>
+					<span
+						>An email has been sent to reset your password. Check your spam/junk folder for an email
+						from support@coyer
+					</span>
 				</div>
 			</div>
 		{/if}

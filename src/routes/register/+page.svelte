@@ -34,6 +34,9 @@
 		</div>
 		<div class="w-full max-w-md pt-2">
 			<button type="submit" class="btn btn-primary w-full">Register</button>
+			<p class="text-xs text-gray-500 mt-1">
+				Be sure to check spam/junk folders for email verification from support@coyer
+			</p>
 		</div>
 	</form>
 </div>
