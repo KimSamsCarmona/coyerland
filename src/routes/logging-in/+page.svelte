@@ -8,7 +8,7 @@
 
 		// check if user has been set in session store then redirect
 		if ($page.data.session) {
-			goto(redirectTo ?? '/book-log');
+			goto(redirectTo ?? '/');
 		}
 	}
 </script>
@@ -54,9 +54,7 @@
 		<div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 			<div class="w-full h-28 flex items-center justify-between">
 				<div class="flex flex-col w-full ml-4 h-full justify-center">
-					<h2 class="text-3xl font-bold">
-						You're being logged in and redirected to your book log. Happy Reading!
-					</h2>
+					<h2 class="text-3xl font-bold">You're being logged in! Enjoy your Game!</h2>
 				</div>
 			</div>
 		</div>
