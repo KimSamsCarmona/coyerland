@@ -1,17 +1,6 @@
 <script>
-   import coyer from '../lib/assets/COYER-2022.jpg';
-   import {enhance} from '$app/forms';
-   import {supabaseClient} from '../lib/supabase';
-
+   import coyer from '../lib/assets/COYER-2022.jpg'
 	export let data;
-
-   const submmitLogout = async ({ cancel }) => {
-      const {error} = await supabaseClient.auth.signOut();
-      if (error) {
-         console.log(error);
-      }
-      cancel();
-   };
 </script>
 
 <div class="min-h-full flex flex-col justify-between overflow-x-hidden">
@@ -20,7 +9,7 @@
 			<a class="btn btn-ghost normal-case text-xl" href="/">COYERLand</a>
 		</div>
 		<div class="flex-none">
-			{#if !data.session}
+			{#if !data.user}
 				<div class="dropdown dropdown-end">
 					<a href="/login" class="btn btn-primary">Login</a>
 					<a href="/register" class="btn btn-primary">Register</a>
