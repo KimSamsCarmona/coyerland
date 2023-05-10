@@ -1,5 +1,5 @@
 <script>
-   import coyer from '../lib/assets/COYER-2022.jpg'
+	import coyer from '../lib/assets/COYER-2022.jpg';
 	export let data;
 </script>
 
@@ -11,8 +11,7 @@
 		<div class="flex-none">
 			{#if !data.user}
 				<div class="dropdown dropdown-end">
-					<a href="/login" class="btn btn-primary">Login</a>
-					<a href="/register" class="btn btn-primary">Register</a>
+					<a href="/login" class="btn btn-primary btn-wide">Login</a>
 				</div>
 			{:else}
 				<div class="dropdown dropdown-end mr-4">
@@ -23,9 +22,7 @@
 					<!-- svelte-ignore a11y-label-has-associated-control -->
 					<label tabindex="0" class="btn btn-ghost btn-circle avatar">
 						<div class="w-15 rounded-full">
-							<img
-								src={coyer}
-							/>
+							<img src={coyer} />
 						</div>
 					</label>
 					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->

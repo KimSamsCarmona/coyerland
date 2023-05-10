@@ -1,12 +1,5 @@
-// export const prerender = false;
-export const load = async ({ locals }) => {
-	if (locals.user) {
-		return {
-			user: locals.user
-		};
-	}
-
+export const load = async ({ locals: { getSession } }) => {
 	return {
-		user: undefined
+		session: getSession()
 	};
 };
