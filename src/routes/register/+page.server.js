@@ -1,25 +1,20 @@
-import { AuthApiError } from '@supabase/supabase-js';
-import { fail, redirect} from "@sveltejs/kit"
+import { error, redirect } from '@sveltejs/kit';
+import { generateUsername } from '../../lib/utils';
 
 export const actions = {
-	register: async ({ request, locals }) => {
+	register: async ({ locals, request }) => {
 		const body = Object.fromEntries(await request.formData());
 
-      const { data, error: err} = await locals.sb.auth.signUp({
-         email: body.email,
-         password: body.password
-      })
+		let username = generateUsername(body.name.split('').join('')).toLowerCase();
 
-      if (err) {
-         if (err instanceof AuthApiError && err.status === 400) {
-            return fail(400, {
-               error: "Invalid email or password",
-            })
-         }
-         return fail(500, {
-            error: "Server error. Please try again later."
-         })
-      }
-      throw redirect(303, '/')
-   },
-}
+		try {
+			await locals.pb.collection('users').create({ username, ...body });
+			await locals.pb.collection('users').requestVerification(body.email);
+		} catch (err) {
+			console.log('Error: ', err);
+			throw error(500, 'Something went wrong');
+		}
+
+		throw redirect(303, '/login');
+	}
+};
