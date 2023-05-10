@@ -9,7 +9,7 @@
 			<a class="btn btn-ghost normal-case text-xl" href="/">COYERLand</a>
 		</div>
 		<div class="flex-none">
-			{#if $page.data.session}
+			{#if !$page.data.session}
 				<div class="dropdown dropdown-end">
 					<a href="/login" class="btn btn-primary btn-wide">Login</a>
 				</div>
