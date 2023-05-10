@@ -1,8 +1,5 @@
 <script>
 	import coyer from '../../lib/assets/COYER-2022.jpg';
-
-	export let form;
-	export let data;
 </script>
 
 <div class="min-h-full flex flex-col justify-between overflow-x-hidden">
@@ -17,6 +14,10 @@
 				<h2 class="mt-2 text-center text-3xl font-bold tracking-tight text-base-content">
 					Request Magic Link to Login & Play COYERLand
 				</h2>
+				<p>
+					After successful submission, you will be redirected to the home page. Please check your
+					email for a magic link to gain access.
+				</p>
 				<form
 					action="?/login"
 					method="POST"
@@ -38,11 +39,6 @@
 </div>
 
 <style>
-	.button {
-		background-color: #ddccf0;
-		color: #212121;
-		/* font-family:  */
-	}
 	.nav {
 		/* background-color: #f5f5f5; */
 		/* background-color: rgba(255, 255, 255, 0.5); */

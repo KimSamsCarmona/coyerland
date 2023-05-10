@@ -1,4 +1,4 @@
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 
 export const actions = {
 	login: async ({ request, url, locals: { supabase } }) => {
@@ -18,10 +18,6 @@ export const actions = {
 				values: { email }
 			});
 		}
-
-		return {
-			success: true,
-			message: 'Please check your email for a magic link to log into the website.'
-		};
+		throw redirect(303, '/');
 	}
 };
