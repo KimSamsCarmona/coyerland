@@ -1,6 +1,6 @@
 <script>
+	import { page } from '$app/stores';
 	import coyer from '../lib/assets/COYER-2022.jpg';
-	export let data;
 </script>
 
 <div class="min-h-full flex flex-col justify-between overflow-x-hidden">
@@ -9,7 +9,7 @@
 			<a class="btn btn-ghost normal-case text-xl" href="/">COYERLand</a>
 		</div>
 		<div class="flex-none">
-			{#if !data.user}
+			{#if $page.data.session}
 				<div class="dropdown dropdown-end">
 					<a href="/login" class="btn btn-primary btn-wide">Login</a>
 				</div>
