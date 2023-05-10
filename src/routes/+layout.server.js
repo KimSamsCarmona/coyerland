@@ -1,12 +1,8 @@
-// export const prerender = false;
-export const load = async ({ locals }) => {
-	if (locals.user) {
-		return {
-			user: locals.user
-		};
-	}
+import { getServerSession } from '@supabase/auth-helpers-sveltekit';
 
+export const load = async (event) => {
+	console.log('Ran layout load');
 	return {
-		user: undefined
+		sesion: await getServerSession(event)
 	};
 };
