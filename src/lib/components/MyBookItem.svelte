@@ -11,6 +11,7 @@
 	<div class="flex flex-col w-full ml-4 h-full justify-center">
 		<a href="/book-log/{book.id}" class="font-semibold text-lg">{book.title}</a>
 		<p>Linky Number: {book.linky_number}</p>
+		<p>Category: {book.category}</p>
 		<p>Spaces Earned: {book.spaces}</p>
 	</div>
 	<div class="flex items-center justify-end w-full">
