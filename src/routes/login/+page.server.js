@@ -1,22 +1,23 @@
-import { error, redirect } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 
 export const actions = {
-	login: async ({ request, locals }) => {
+	login: async ({ request, url, locals: { supabase } }) => {
 		const body = Object.fromEntries(await request.formData());
+		const email = body.email;
 
-		try {
-			await locals.pb.collection('users').authWithPassword(body.email, body.password);
-			if (!locals.pb.authStore?.model?.verified) {
-				locals.pb.authStore.clear();
-				return {
-					notVerified: true
-				};
+		const { error } = await supabase.auth.signInWithOtp({
+			email,
+			options: {
+				emailRedirectTo: `${url.origin}/logging-in`
 			}
-		} catch (err) {
-			console.log('Error: ', err);
-			throw error(500, 'Something went wrong logging in');
-		}
+		});
 
+		if (error) {
+			return fail(400, {
+				error: error.message,
+				values: { email }
+			});
+		}
 		throw redirect(303, '/');
 	}
 };

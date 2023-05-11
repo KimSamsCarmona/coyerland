@@ -1,41 +1,42 @@
-import { error, redirect } from '@sveltejs/kit';
-import { serializeNonPOJOs } from '$lib/utils';
+import { fail, redirect } from '@sveltejs/kit';
 
-export const load = async ({ locals }) => {
-	if (!locals.pb.authStore.isValid) {
+export const load = async ({ locals: { supabase, getSession } }) => {
+	const session = await getSession();
+
+	if (!session) {
 		throw redirect(303, '/login');
 	}
 
-	const getUsersBooks = async (userId) => {
-		try {
-			const books = serializeNonPOJOs(
-				await locals.pb.collection('books').getFullList(undefined, {
-					filter: `user = "${userId}"`
-				})
-			);
-			return books;
-		} catch (err) {
-			console.log('Error: ', err);
-			throw error(err.status, err.message);
-		}
-	};
+	let { data: books, error } = await supabase
+		.from('books')
+		.select('*')
+		.eq('user_id', session?.user.id);
 
-	const books = await getUsersBooks(locals.user.id);
+	if (error) {
+		return fail(500, {
+			books
+		});
+	}
+
 	return {
-		books: books.length > 0 ? books : []
+		books,
+		user: session?.user.id
 	};
 };
 
 export const actions = {
-	deleteBook: async ({ request, locals }) => {
+	deleteBook: async ({ request, locals: { supabase, getSession } }) => {
 		const { id } = Object.fromEntries(await request.formData());
+		const session = await getSession();
 
-		try {
-			await locals.pb.collection('books').delete(id);
-		} catch (err) {
-			console.log('Error: ', err);
-			throw error(err.status, err.message);
+		const { data, error } = await supabase.from('books').delete().eq('id', id);
+
+		if (error) {
+			return fail(500, {
+				id
+			});
 		}
+
 		return {
 			success: true
 		};

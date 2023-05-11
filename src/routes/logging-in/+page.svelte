@@ -1,18 +1,15 @@
 <script>
-	import { MyBookItem } from '$lib/components';
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 	import coyer from '../../lib/assets/COYER-2022.jpg';
 
-	export let data;
-	let spaces;
-	$: ({ books, user } = data);
-	$: spaces = sumBookSpaces(data.books);
+	$: {
+		const redirectTo = $page.url.searchParams.get('redirect');
 
-	function sumBookSpaces(books) {
-		let sum = 0;
-		for (let i = 0; i < books.length; i++) {
-			sum += parseInt(books[i].spaces);
+		// check if user has been set in session store then redirect
+		if ($page.data.session) {
+			goto(redirectTo ?? '/');
 		}
-		return sum;
 	}
 </script>
 
@@ -57,24 +54,8 @@
 		<div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 			<div class="w-full h-28 flex items-center justify-between">
 				<div class="flex flex-col w-full ml-4 h-full justify-center">
-					<h2 class="text-3xl font-bold">Book List</h2>
-					<h3>Total Spaces = {spaces}</h3>
+					<h2 class="text-3xl font-bold">You're being logged in! Enjoy your Game!</h2>
 				</div>
-				<div class="flex items-center justify-end w-full">
-					<a href="/book-log/new" class="btn new">Log New Book</a>
-				</div>
-			</div>
-			<div class="w-full mt-4 flex flex-col items-center">
-				{#if books.length === 0}
-					<p class="text-center text-3xl">😥</p>
-					<p class="text-center text-3xl">Looks like you don't have any Books.</p>
-					<a href="/book-log/new" class="btn btn-primary max-w-md mt-4">Add One</a>
-				{:else}
-					{#each books as book}
-						<MyBookItem {book} />
-						<div class="divider mt-0 mb-2" />
-					{/each}
-				{/if}
 			</div>
 		</div>
 	</div>
@@ -90,11 +71,5 @@
 		background-color: #f5f5f5;
 		/* background-color: rgba(255, 255, 255, 0.5); */
 		backdrop-filter: blur(50px);
-	}
-	.new {
-		background-color: #543278;
-		color: white;
-		font-weight: 700;
-		font-size: 16px;
 	}
 </style>

@@ -1,6 +1,6 @@
 <script>
-   import coyer from '../lib/assets/COYER-2022.jpg'
-	export let data;
+	import { page } from '$app/stores';
+	import coyer from '../lib/assets/COYER-2022.jpg';
 </script>
 
 <div class="min-h-full flex flex-col justify-between overflow-x-hidden">
@@ -9,12 +9,6 @@
 			<a class="btn btn-ghost normal-case text-xl" href="/">COYERLand</a>
 		</div>
 		<div class="flex-none">
-			{#if !data.user}
-				<div class="dropdown dropdown-end">
-					<a href="/login" class="btn btn-primary">Login</a>
-					<a href="/register" class="btn btn-primary">Register</a>
-				</div>
-			{:else}
 				<div class="dropdown dropdown-end mr-4">
 					<a href="/play" class="btn button sm:btn-wide">View Game</a>
 				</div>
@@ -23,9 +17,7 @@
 					<!-- svelte-ignore a11y-label-has-associated-control -->
 					<label tabindex="0" class="btn btn-ghost btn-circle avatar">
 						<div class="w-15 rounded-full">
-							<img
-								src={coyer}
-							/>
+							<img src={coyer} />
 						</div>
 					</label>
 					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -40,16 +32,12 @@
 							<a href="/book-log" class="justify-between">Book Log</a>
 						</li>
 						<li>
-							<a href="/settings/profile">Settings</a>
-						</li>
-						<li>
 							<form action="/logout" method="POST">
 								<button type="submit" class="w-full text-start">Logout</button>
 							</form>
 						</li>
 					</ul>
 				</div>
-			{/if}
 		</div>
 	</nav>
 	<div class="py-4">

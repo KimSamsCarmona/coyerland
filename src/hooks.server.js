@@ -1,22 +1,23 @@
-import PocketBase from 'pocketbase';
-import { serializeNonPOJOs } from '$lib/utils';
+import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from '$env/static/public';
+import { createSupabaseServerClient } from '@supabase/auth-helpers-sveltekit';
 
-// export const prerender = false;
 export const handle = async ({ event, resolve }) => {
-	event.locals.pb = new PocketBase('https://coyergroup.com');
-	// event.locals.pb = new PocketBase('http://localhost:8090');
+	event.locals.supabase = createSupabaseServerClient({
+		supabaseUrl: PUBLIC_SUPABASE_URL,
+		supabaseKey: PUBLIC_SUPABASE_ANON_KEY,
+		event
+	});
 
-	event.locals.pb.authStore.loadFromCookie(event.request.headers.get('cookie') || '');
+	event.locals.getSession = async () => {
+		const {
+			data: { session }
+		} = await event.locals.supabase.auth.getSession();
+		return session;
+	};
 
-	if (event.locals.pb.authStore.isValid) {
-		event.locals.user = serializeNonPOJOs(event.locals.pb.authStore.model);
-	} else {
-		event.locals.user = undefined;
-	}
-
-	const response = await resolve(event);
-
-	response.headers.set('set-cookie', event.locals.pb.authStore.exportToCookie({ secure: false }));
-
-	return response;
+	return resolve(event, {
+		filterSerializedResponseHeaders(name) {
+			return name === 'content-range';
+		}
+	});
 };

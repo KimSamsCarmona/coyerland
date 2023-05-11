@@ -49,6 +49,9 @@
 	import space42 from '../../lib/assets/space42@3x.png';
 
 	export let data;
+	let spaces;
+	$: ({ books, user } = data);
+	$: spaces = sumBookSpaces(data.books);
 
 	function sumBookSpaces(books) {
 		let sum = 0;
@@ -57,7 +60,7 @@
 		}
 		return sum;
 	}
-	let spaces = sumBookSpaces(data.books);
+
 </script>
 
 <div class="min-h-full flex flex-col justify-between overflow-x-hidden">
@@ -110,9 +113,6 @@
 							<a href="/book-log" class="justify-between">Book Log</a>
 						</li>
 						<li>
-							<a href="/settings/profile">Settings</a>
-						</li>
-						<li>
 							<form action="/logout" method="POST">
 								<button type="submit" class="w-full text-start">Logout</button>
 							</form>
@@ -125,89 +125,89 @@
 	<div class="py-4">
 		<div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 			{#if spaces == 0}
-				<img src={space01} class="object-cover w-full h-full" />
+				<img src={space01} alt="1 space" class="object-cover w-full h-full" />
 			{:else if spaces == 1}
-				<img src={space02} class="object-cover w-full h-full" />
+				<img src={space02} alt="2 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 2}
-				<img src={space03} class="object-cover w-full h-full" />
+				<img src={space03} alt="3 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 3}
-				<img src={space04} class="object-cover w-full h-full" />
+				<img src={space04} alt="4 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 4}
-				<img src={space05} class="object-cover w-full h-full" />
+				<img src={space05} alt="5 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 5}
-				<img src={space06} class="object-cover w-full h-full" />
+				<img src={space06} alt="6 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 6}
-				<img src={space07} class="object-cover w-full h-full" />
+				<img src={space07} alt="7 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 7}
-				<img src={space08} class="object-cover w-full h-full" />
+				<img src={space08} alt="8 spaces" vclass="object-cover w-full h-full" />
 			{:else if spaces == 8}
-				<img src={space09} class="object-cover w-full h-full" />
+				<img src={space09} alt="9 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 9}
-				<img src={space10} class="object-cover w-full h-full" />
+				<img src={space10} alt="10 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 10}
-				<img src={space11} class="object-cover w-full h-full" />
+				<img src={space11} alt="11 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 11}
-				<img src={space12} class="object-cover w-full h-full" />
+				<img src={space12} alt="12 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 12}
-				<img src={space13} class="object-cover w-full h-full" />
+				<img src={space13} alt="13 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 13}
-				<img src={space14} class="object-cover w-full h-full" />
+				<img src={space14} alt="14 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 14}
-				<img src={space15} class="object-cover w-full h-full" />
+				<img src={space15} alt="15 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 15}
-				<img src={space16} class="object-cover w-full h-full" />
+				<img src={space16} alt="16 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 16}
-				<img src={space17} class="object-cover w-full h-full" />
+				<img src={space17} alt="17 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 17}
-				<img src={space18} class="object-cover w-full h-full" />
+				<img src={space18} alt="18 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 18}
-				<img src={space19} class="object-cover w-full h-full" />
+				<img src={space19} alt="19 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 19}
-				<img src={space20} class="object-cover w-full h-full" />
+				<img src={space20} alt="20 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 20}
-				<img src={space21} class="object-cover w-full h-full" />
+				<img src={space21} alt="21 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 21}
-				<img src={space22} class="object-cover w-full h-full" />
+				<img src={space22} alt="22 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 22}
-				<img src={space23} class="object-cover w-full h-full" />
+				<img src={space23} alt="23 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 23}
-				<img src={space24} class="object-cover w-full h-full" />
+				<img src={space24} alt="24 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 24}
-				<img src={space25} class="object-cover w-full h-full" />
+				<img src={space25} alt="25 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 25}
-				<img src={space26} class="object-cover w-full h-full" />
+				<img src={space26} alt="26 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 26}
-				<img src={space27} class="object-cover w-full h-full" />
+				<img src={space27} alt="27 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 27}
-				<img src={space28} class="object-cover w-full h-full" />
+				<img src={space28} alt="28 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 28}
-				<img src={space29} class="object-cover w-full h-full" />
+				<img src={space29} alt="29 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 29}
-				<img src={space30} class="object-cover w-full h-full" />
+				<img src={space30} alt="30 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 30}
-				<img src={space31} class="object-cover w-full h-full" />
+				<img src={space31} alt="31 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 31}
-				<img src={space32} class="object-cover w-full h-full" />
+				<img src={space32} alt="32 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 32}
-				<img src={space33} class="object-cover w-full h-full" />
+				<img src={space33} alt="33 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 33}
-				<img src={space34} class="object-cover w-full h-full" />
+				<img src={space34} alt="34 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 34}
-				<img src={space35} class="object-cover w-full h-full" />
+				<img src={space35} alt="35 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 35}
-				<img src={space36} class="object-cover w-full h-full" />
+				<img src={space36} alt="36 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 36}
-				<img src={space37} class="object-cover w-full h-full" />
+				<img src={space37} alt="37 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 37}
-				<img src={space38} class="object-cover w-full h-full" />
+				<img src={space38} alt="38 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 38}
-				<img src={space39} class="object-cover w-full h-full" />
+				<img src={space39} alt="39 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 39}
-				<img src={space40} class="object-cover w-full h-full" />
+				<img src={space40} alt="40 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 40}
-				<img src={space41} class="object-cover w-full h-full" />
+				<img src={space41} alt="41 spaces" class="object-cover w-full h-full" />
 			{:else if spaces >= 41}
-				<img src={space42} class="object-cover w-full h-full" />
+				<img src={space42} alt="42 spaces" class="object-cover w-full h-full" />
 			{/if}
 			<a href="/book-log/new" class="btn btn-floating float">Log Book</a>
 		</div>
