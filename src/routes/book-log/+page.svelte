@@ -49,9 +49,6 @@
 							<a href="/book-log" class="justify-between">Book Log</a>
 						</li>
 						<li>
-							<a href="/settings/profile">Settings</a>
-						</li>
-						<li>
 							<form action="/logout" method="POST">
 								<button type="submit" class="w-full text-start">Logout</button>
 							</form>
