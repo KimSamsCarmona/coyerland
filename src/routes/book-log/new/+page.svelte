@@ -47,42 +47,35 @@
 			<a class="btn btn-ghost normal-case text-xl" href="/">COYERLand</a>
 		</div>
 		<div class="flex-none">
-			{#if !data.user}
-				<div class="dropdown dropdown-end">
-					<a href="/login" class="btn btn-primary">Login</a>
-					<a href="/register" class="btn btn-primary">Register</a>
-				</div>
-			{:else}
-				<div class="dropdown dropdown-end mr-4">
-					<a href="/play" class="btn button sm:btn-wide">View Game!</a>
-				</div>
-				<div class="dropdown dropdown-end pr-20">
-					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-					<!-- svelte-ignore a11y-label-has-associated-control -->
-					<label tabindex="0" class="btn btn-ghost btn-circle avatar">
-						<div class="w-15 rounded-full">
-							<img src={coyer} alt="user avatar" />
-						</div>
-					</label>
-					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-					<ul
-						tabindex="0"
-						class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-					>
-						<li>
-							<a href="/" class="justify-between">Home</a>
-						</li>
-						<li>
-							<a href="/book-log" class="justify-between">Book Log</a>
-						</li>
-						<li>
-							<form action="/logout" method="POST">
-								<button type="submit" class="w-full text-start">Logout</button>
-							</form>
-						</li>
-					</ul>
-				</div>
-			{/if}
+			<div class="dropdown dropdown-end mr-4">
+				<a href="/play" class="btn button sm:btn-wide">View Game!</a>
+			</div>
+			<div class="dropdown dropdown-end pr-20">
+				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+				<!-- svelte-ignore a11y-label-has-associated-control -->
+				<label tabindex="0" class="btn btn-ghost btn-circle avatar">
+					<div class="w-15 rounded-full">
+						<img src={coyer} alt="user avatar" />
+					</div>
+				</label>
+				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+				<ul
+					tabindex="0"
+					class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+				>
+					<li>
+						<a href="/" class="justify-between">Home</a>
+					</li>
+					<li>
+						<a href="/book-log" class="justify-between">Book Log</a>
+					</li>
+					<li>
+						<form action="/logout" method="POST">
+							<button type="submit" class="w-full text-start">Logout</button>
+						</form>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</nav>
 	<div class="py-4">
@@ -107,11 +100,7 @@
 								<span class="label-text">Category</span>
 							</label>
 							<div class="relative">
-								<select
-									id="category2"
-									class="input input-bordered w-full max-w-lg"
-									bind:value={selectedOption}
-								>
+								<select class="input input-bordered w-full max-w-lg" bind:value={selectedOption}>
 									{#each options as option}
 										<option id="category2" value={option}>{option}</option>
 									{/each}
@@ -143,8 +132,8 @@
 								{/if}
 							</div>
 						</div>
+                  <input type="hidden" name="category" value={selectedOption} />
 						<Input
-							id="spaces"
 							label="Spaces Earned"
 							type="text"
 							value={getNumberForOption(selectedOption)}
