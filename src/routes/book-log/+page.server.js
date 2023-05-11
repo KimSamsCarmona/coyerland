@@ -24,18 +24,21 @@ export const load = async ({ locals: { supabase, getSession } }) => {
 	};
 };
 
-// export const actions = {
-// 	deleteBook: async ({ request, locals }) => {
-// 		const { id } = Object.fromEntries(await request.formData());
+export const actions = {
+	deleteBook: async ({ request, locals: { supabase, getSession } }) => {
+		const { id } = Object.fromEntries(await request.formData());
+		const session = await getSession();
 
-// 		try {
-// 			await locals.pb.collection('books').delete(id);
-// 		} catch (err) {
-// 			console.log('Error: ', err);
-// 			throw error(err.status, err.message);
-// 		}
-// 		return {
-// 			success: true
-// 		};
-// 	}
-// };
+		const { data, error } = await supabase.from('books').delete().eq('id', id);
+
+		if (error) {
+			return fail(500, {
+				id
+			});
+		}
+
+		return {
+			success: true
+		};
+	}
+};

@@ -10,7 +10,6 @@
 	function sumBookSpaces(books) {
 		let sum = 0;
 		for (let i = 0; i < books.length; i++) {
-			console.log('spaces:', books[i].spaces);
 			sum += parseInt(books[i].spaces);
 		}
 		return sum;
