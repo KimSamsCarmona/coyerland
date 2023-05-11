@@ -9,6 +9,11 @@
 			<a class="btn btn-ghost normal-case text-xl" href="/">COYERLand</a>
 		</div>
 		<div class="flex-none">
+			{#if !$page.data.session}
+				<div class="dropdown dropdown-end">
+					<a href="/login" class="btn btn-primary btn-wide">Login</a>
+				</div>
+			{:else}
 				<div class="dropdown dropdown-end mr-4">
 					<a href="/play" class="btn button sm:btn-wide">View Game</a>
 				</div>
@@ -38,6 +43,7 @@
 						</li>
 					</ul>
 				</div>
+			{/if}
 		</div>
 	</nav>
 	<div class="py-4">
