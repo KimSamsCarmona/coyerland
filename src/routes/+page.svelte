@@ -50,34 +50,40 @@
 		<div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 			<div class="py-4">
 				<div class="mx-auto max-w-7xl sm:px-6 lg:px-8 inline-blick align-middle">
-					<h3 class="text-3xl font-bold text-center">How to Play:</h3>
-					<ul class="list-disc">
-						<li>
-							For all the COYER Chapter two rules go to <a
-								href="https://www.becausereading.com/coyer-chapters-time-to-sign-up-for-chapter-2-coyer-chapter-2-starts-may-1st/"
-								class="text-primary font-medium hover:cursor-pointer hover:underline"
-								>Because Challenges and Sign Up</a
-							>
-						</li>
-						<li>
-							<strong>Work your way through the board game earning ‘spaces’ on the board.</strong>
-							You can view the board by clicking <a href="/play">View Game</a> at the top of the page.
-						</li>
-						<li>
-							You will move forward, racing towards the finish line by logging books, which you can
-							do <a href="/book-log/new">here</a>. Depending on the categories you earn 1, 2, 3, 4,
-							5, or 6 spaces on the board. Refer to rules or book log page for the categories and
-							space values.
-						</li>
-						<li>
-							After logging your books, check out the board to see your progress! Watch out you
-							never know what to expect 😉. In the top left corner, you'll see what part of
-							COYERLAND you're in. At the end of Chapter 2 we will have a Rafflecopter where you can
-							tell us if you finished the game or what part of COYERLAND you're in to earn points in
-							the <strong>bonus</strong> Happy Birthday COYER Rafflecopter!
-						</li>
-					</ul>
-					<h3 class="text-3xl font-bold text-center">We Hope You Have Fun!</h3>
+					{#if !$page.data.session}
+						<h3 class="text-3xl font-bold text-center">
+							Welcome to COYERLand! Login to get started
+						</h3>
+					{:else}
+						<h3 class="text-3xl font-bold text-center">How to Play:</h3>
+						<ul class="list-disc">
+							<li>
+								For all the COYER Chapter two rules go to <a
+									href="https://www.becausereading.com/coyer-chapters-time-to-sign-up-for-chapter-2-coyer-chapter-2-starts-may-1st/"
+									class="text-primary font-medium hover:cursor-pointer hover:underline"
+									>Because Challenges and Sign Up</a
+								>
+							</li>
+							<li>
+								<strong>Work your way through the board game earning ‘spaces’ on the board.</strong>
+								You can view the board by clicking <a href="/play">View Game</a> at the top of the page.
+							</li>
+							<li>
+								You will move forward, racing towards the finish line by logging books, which you
+								can do <a href="/book-log/new">here</a>. Depending on the categories you earn 1, 2,
+								3, 4, 5, or 6 spaces on the board. Refer to rules or book log page for the
+								categories and space values.
+							</li>
+							<li>
+								After logging your books, check out the board to see your progress! Watch out you
+								never know what to expect 😉. In the top left corner, you'll see what part of
+								COYERLAND you're in. At the end of Chapter 2 we will have a Rafflecopter where you
+								can tell us if you finished the game or what part of COYERLAND you're in to earn
+								points in the <strong>bonus</strong> Happy Birthday COYER Rafflecopter!
+							</li>
+						</ul>
+						<h3 class="text-3xl font-bold text-center">We Hope You Have Fun!</h3>
+					{/if}
 				</div>
 			</div>
 		</div>
