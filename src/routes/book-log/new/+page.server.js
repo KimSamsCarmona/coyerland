@@ -4,7 +4,7 @@ export const load = async ({ locals: { supabase, getSession } }) => {
 	const session = await getSession();
 
 	if (!session) {
-		throw redirect(303, '/');
+		throw redirect(303, '/login');
 	}
 };
 
@@ -12,13 +12,6 @@ export const actions = {
 	create: async ({ request, locals: { supabase, getSession } }) => {
 		const formData = Object.fromEntries(await request.formData());
 		const session = await getSession();
-		console.log(
-			'formData:',
-			formData.title,
-			formData.linky_number,
-			formData.category,
-			formData.spaces
-		);
 
 		const { error } = await supabase.from('books').insert([
 			{
@@ -29,8 +22,6 @@ export const actions = {
 				spaces: formData.spaces
 			}
 		]);
-
-		console.log({ error });
 
 		if (error) {
 			return fail(500, {
