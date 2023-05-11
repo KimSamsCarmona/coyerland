@@ -49,6 +49,9 @@
 	import space42 from '../../lib/assets/space42@3x.png';
 
 	export let data;
+	let spaces;
+	$: ({ books, user } = data);
+	$: spaces = sumBookSpaces(data.books);
 
 	function sumBookSpaces(books) {
 		let sum = 0;
@@ -57,7 +60,7 @@
 		}
 		return sum;
 	}
-	let spaces = sumBookSpaces(data.books);
+
 </script>
 
 <div class="min-h-full flex flex-col justify-between overflow-x-hidden">
