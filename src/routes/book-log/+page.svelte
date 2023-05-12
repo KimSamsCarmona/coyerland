@@ -21,7 +21,7 @@
 		<div class="flex-1">
 			<a class="btn btn-ghost normal-case text-xl" href="/">COYERLand</a>
 		</div>
-		<div class="flex-none">
+		<div>
 			<div class="dropdown dropdown-end mr-4">
 				<a href="/play" class="btn button sm:btn-wide">View Game</a>
 			</div>
@@ -54,7 +54,7 @@
 		</div>
 	</nav>
 	<div class="py-4">
-		<div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+		<div class="mx-2 max-w-7xl sm:px-6 lg:px-8">
 			<div class="w-full h-28 flex items-center justify-between">
 				<div class="flex flex-col w-full ml-4 h-full justify-center">
 					<h2 class="text-3xl font-bold">Book List</h2>

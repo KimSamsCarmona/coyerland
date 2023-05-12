@@ -8,7 +8,7 @@
 		<div class="flex-1">
 			<a class="btn btn-ghost normal-case text-xl" href="/">COYERLand</a>
 		</div>
-		<div class="flex-none">
+		<div>
 			{#if !$page.data.session}
 				<div class="dropdown dropdown-end">
 					<a href="/login" class="btn btn-primary btn-wide">Login</a>
@@ -49,7 +49,7 @@
 	<div class="py-4">
 		<div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 			<div class="py-4">
-				<div class="mx-auto max-w-7xl sm:px-6 lg:px-8 inline-blick align-middle">
+				<div class="mx-2 max-w-7xl sm:px-6 lg:px-8 inline-blick align-middle">
 					{#if !$page.data.session}
 						<h3 class="text-3xl font-bold text-center">
 							Welcome to COYERLand! Login to get started
