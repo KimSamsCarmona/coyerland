@@ -245,7 +245,7 @@
 	}
 	.float {
 		position: fixed;
-		bottom: 0;
+		bottom: 45px;
 		left: 50%;
 		transform: translateX(-50%);
 		z-index: 9999;
