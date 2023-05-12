@@ -60,7 +60,6 @@
 		}
 		return sum;
 	}
-
 </script>
 
 <div class="min-h-full flex flex-col justify-between overflow-x-hidden">
@@ -93,7 +92,7 @@
 				<div class="dropdown dropdown-end mr-4">
 					<a href="/book-log" class="btn button h-10 sm:btn-wide">Book List</a>
 				</div>
-				<div class="dropdown dropdown-end pr-20">
+				<div class="dropdown dropdown-end menu">
 					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 					<!-- svelte-ignore a11y-label-has-associated-control -->
 					<label tabindex="0" class="btn btn-ghost btn-circle avatar">
@@ -238,6 +237,36 @@
 		padding-left: 100px;
 	}
 
+	.menu {
+		padding-right: 100px;
+	}
+
+	@media (max-width: 768px) {
+		.location {
+			padding-left: 50px;
+		}
+
+		.genre {
+			padding-left: 50px;
+		}
+		.menu {
+			padding-right: 50px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.location {
+			padding-left: 20px;
+		}
+
+		.genre {
+			padding-left: 20px;
+		}
+
+		.menu {
+			padding-right: 20px;
+		}
+	}
 	.nav {
 		background-color: #f5f5f5;
 		/* background-color: rgba(255, 255, 255, 0.5); */
