@@ -1,5 +1,6 @@
 <script>
 	import { Modal } from '$lib/components';
+   import {Icon, PencilSquare, Trash} from "svelte-hero-icons"
 
 	export let book;
 	let modalOpen;
@@ -15,9 +16,9 @@
 		<p>Spaces Earned: {book.spaces}</p>
 	</div>
 	<div class="flex items-center justify-end w-full">
-		<a href="/book-log/{book.id}" class="btn btn-outline">Edit In Book Log</a>
+		<a href="/book-log/{book.id}"><Icon src="{PencilSquare}" solid size="2rem"/></a>
 		<Modal label={book.id} checked={modalOpen}>
-			<span slot="trigger" class="btn btn-error ml-2">Delete</span>
+			<span slot="trigger"><Icon src="{Trash}" size="2rem"/></span>
 			<div slot="heading">
 				<h3 class="text-2xl">Delete {book.title}</h3>
 				<p class="text-base font-normal mt-2">
