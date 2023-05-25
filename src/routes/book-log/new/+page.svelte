@@ -1,6 +1,7 @@
 <script>
 	import { Input } from '$lib/components';
 	import coyer from '../../../lib/assets/COYER-2022.jpg';
+	import { surpriseStore } from '../../../lib/surpriseStore';
 
 	export let data;
 
@@ -39,6 +40,54 @@
 				return 0; // Error code for invalid selection
 		}
 	}
+
+	// generate surprise data
+	function rollDice() {
+		return Math.floor(Math.random() * 3) + 1;
+	}
+
+	function generateSurprise() {
+		const options = [
+			{
+				title: 'Awesome! Portal!',
+				category: 'Surprise',
+				spaces: rollDice()
+			},
+			{
+				title: 'Oh No! Storm!',
+				category: 'Surprise',
+				spaces: -rollDice()
+			},
+			{
+				title: 'Good Job!',
+				category: 'Surprise',
+				spaces: 0
+			}
+		];
+		const randomIndex = Math.floor(Math.random() * options.length);
+		const surpriseData = options[randomIndex];
+
+		surpriseStore.set(surpriseData);
+
+		const hiddenFields = [
+			{
+				name: 'surpriseTitle',
+				value: surpriseData.title
+			},
+			{
+				name: 'surpriseCategory',
+				value: surpriseData.category
+			},
+			{
+				name: 'surpriseSpaces',
+				value: surpriseData.spaces
+			}
+		];
+
+		return { surpriseData, hiddenFields };
+	}
+
+	const { surpriseData, hiddenFields } = generateSurprise();
 </script>
 
 <div class="min-h-full flex flex-col justify-between overflow-x-hidden">
@@ -132,7 +181,7 @@
 								{/if}
 							</div>
 						</div>
-                  <input type="hidden" name="category" value={selectedOption} />
+						<input type="hidden" name="category" value={selectedOption} />
 						<Input
 							label="Spaces Earned"
 							type="text"
@@ -141,6 +190,9 @@
 						/>
 						<input type="hidden" name="spaces" value={getNumberForOption(selectedOption)} />
 						<Input id="linky_number" label="Linky Number" type="number" />
+						{#each hiddenFields as { name, value }}
+							<input type="hidden" {name} {value} />
+						{/each}
 						<div class="w-full max-w-lg pt-3">
 							<button type="submit" class="btn new w-full max-w-lg">Log Book Read</button>
 							<a href="/book-log/" class="btn btn-outline w-full max-w-lg">Cancel</a>

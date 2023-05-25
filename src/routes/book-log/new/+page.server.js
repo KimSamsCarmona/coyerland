@@ -13,30 +13,37 @@ export const actions = {
 		const formData = Object.fromEntries(await request.formData());
 		const session = await getSession();
 
-		const { error } = await supabase.from('books').insert([
-			{
-				user_id: session?.user.id,
-				title: formData.title,
-				linky_number: formData.linky_number,
-				category: formData.category,
-				spaces: formData.spaces
-			}
-		]);
+		const bookData = {
+			user_id: session?.user.id,
+			title: formData.title,
+			linky_number: formData.linky_number,
+			category: formData.category,
+			spaces: formData.spaces,
+			is_surprise: false
+		};
 
-		if (error) {
+		const surpriseData = {
+			user_id: session?.user.id,
+			title: formData.surpriseTitle,
+			linky_number: '',
+			category: formData.surpriseCategory,
+			spaces: formData.surpriseSpaces,
+			is_surprise: true
+		};
+
+		const { error: bookError } = await supabase.from('books').insert([bookData]);
+		const { error: surpriseError } = await supabase.from('books').insert([surpriseData]);
+
+		if (bookError || surpriseError) {
 			return fail(500, {
-				title: formData.title,
-				linky_number: formData.linky_number,
-				category: formData.category,
-				spaces: formData.spaces
+				bookData,
+				surpriseData
 			});
 		}
 
 		return {
-			title: formData.title,
-			linky_number: formData.linky_number,
-			category: formData.category,
-			spaces: formData.spaces
+			bookData,
+			surpriseData
 		};
 	}
 };
