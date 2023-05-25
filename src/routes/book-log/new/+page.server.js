@@ -41,9 +41,6 @@ export const actions = {
 			});
 		}
 
-		return {
-			bookData,
-			surpriseData
-		};
+		throw redirect(303, '/play?surprise');
 	}
 };
