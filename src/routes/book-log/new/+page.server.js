@@ -32,7 +32,10 @@ export const actions = {
 		};
 
 		const { error: bookError } = await supabase.from('books').insert([bookData]);
-		const { error: surpriseError } = await supabase.from('books').insert([surpriseData]);
+		const { error: surpriseError, data: surpriseEntry } = await supabase
+			.from('books')
+			.insert([surpriseData])
+			.select('id');
 
 		if (bookError || surpriseError) {
 			return fail(500, {
@@ -41,6 +44,8 @@ export const actions = {
 			});
 		}
 
-		throw redirect(303, '/play?surprise');
+		const surpriseId = surpriseEntry[0]?.id;
+		console.log('Surprise Id:', surpriseId);
+		throw redirect(303, `/play?surprise=${surpriseId}`);
 	}
 };
