@@ -48,8 +48,16 @@
 	import space41 from '../../lib/assets/space41@3x.png';
 	import space42 from '../../lib/assets/space42@3x.png';
 
+	import { SurpriseCard } from '../../lib/components/index';
+	import { onMount } from 'svelte';
+
 	export let data;
+	let surprise;
 	let spaces;
+	let modalOpen = false;
+	let surpriseTitle;
+	let surpriseSpaces;
+
 	$: ({ books, user } = data);
 	$: spaces = sumBookSpaces(data.books);
 
@@ -60,6 +68,22 @@
 		}
 		return sum;
 	}
+
+	onMount(() => {
+		const urlParams = new URLSearchParams(window.location.search);
+		const surpriseParam = urlParams.get('surprise');
+		const surpriseId = surpriseParam ? surpriseParam : null;
+		if (surpriseParam) {
+			modalOpen = true;
+			const surpriseEntry = books.find((book) => book.id === surpriseId);
+
+			if (surpriseEntry) {
+				surpriseTitle = surpriseEntry.title;
+				surpriseSpaces = surpriseEntry.spaces;
+				console.log('surprise entry', surpriseEntry);
+			}
+		}
+	});
 </script>
 
 <div class="min-h-full flex flex-col justify-between overflow-x-hidden">
@@ -123,6 +147,10 @@
 	</nav>
 	<div class="py-4">
 		<div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+			{#if modalOpen}
+				<SurpriseCard {surprise} />
+			{/if}
+
 			{#if spaces == 0}
 				<img src={space01} alt="1 space" class="object-cover w-full h-full" />
 			{:else if spaces == 1}
@@ -138,7 +166,7 @@
 			{:else if spaces == 6}
 				<img src={space07} alt="7 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 7}
-				<img src={space08} alt="8 spaces" vclass="object-cover w-full h-full" />
+				<img src={space08} alt="8 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 8}
 				<img src={space09} alt="9 spaces" class="object-cover w-full h-full" />
 			{:else if spaces == 9}
