@@ -1,9 +1,6 @@
 <script>
 	import { Input } from '$lib/components';
 	import coyer from '../../../lib/assets/COYER-2022.jpg';
-	import { surpriseStore } from '../../../lib/surpriseStore';
-
-	export let data;
 
 	let options = [
 		'free book',
@@ -66,8 +63,6 @@
 		];
 		const randomIndex = Math.floor(Math.random() * options.length);
 		const surpriseData = options[randomIndex];
-
-		surpriseStore.set(surpriseData);
 
 		const hiddenFields = [
 			{

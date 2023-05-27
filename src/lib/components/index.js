@@ -1,4 +1,5 @@
 import Input from './Input.svelte';
 import Modal from './Modal.svelte';
 import MyBookItem from './MyBookItem.svelte';
-export { Input, Modal, MyBookItem };
+import SurpriseCard from './SurpriseCard.svelte'
+export { Input, Modal, MyBookItem, SurpriseCard };

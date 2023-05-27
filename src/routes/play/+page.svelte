@@ -52,7 +52,7 @@
 	import { onMount } from 'svelte';
 
 	export let data;
-	let surprise;
+	// let surprise;
 	let spaces;
 	let modalOpen = false;
 	let surpriseTitle;
@@ -148,7 +148,7 @@
 	<div class="py-4">
 		<div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 			{#if modalOpen}
-				<SurpriseCard {surprise} />
+				<SurpriseCard {surpriseTitle} {surpriseSpaces} {modalOpen} />
 			{/if}
 
 			{#if spaces == 0}
@@ -305,7 +305,7 @@
 		bottom: 45px;
 		left: 50%;
 		transform: translateX(-50%);
-		z-index: 9999;
+		z-index: 200;
 		background-color: #543278;
 		color: white;
 		font-weight: 700;
