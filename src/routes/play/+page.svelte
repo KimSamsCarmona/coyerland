@@ -235,7 +235,9 @@
 			{:else if spaces >= 41}
 				<img src={space42} alt="42 spaces" class="object-cover w-full h-full" />
 			{/if}
-			<a href="/book-log/new" class="btn btn-floating float">Log Book</a>
+			<div class="float-container">
+				<a href="/book-log/new" class="btn btn-floating float">Log Book</a>
+			</div>
 		</div>
 	</div>
 </div>
@@ -299,17 +301,24 @@
 		/* background-color: rgba(255, 255, 255, 0.5); */
 		backdrop-filter: blur(50px);
 	}
-	.float {
+	.float-container {
 		position: fixed;
 		bottom: 45px;
-		left: 50%;
+		left: 58%;
 		transform: translateX(-50%);
 		z-index: 200;
+		width: 80%;
+	}
+	.float {
+		display: inline-block;
 		background-color: #543278;
 		color: white;
 		font-weight: 700;
 		font-size: 20px;
-		height: 60px;
+		padding: 18px 24px;
+		border-radius: 30px;
+		margin: 20px;
 		width: 75%;
+		height: 60px;
 	}
 </style>
