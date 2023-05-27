@@ -47,17 +47,17 @@
 		const options = [
 			{
 				title: 'Awesome! Portal!',
-				category: 'Surprise',
+				category: 'Random draw during game play. Cannot be edited.',
 				spaces: rollDice()
 			},
 			{
 				title: 'Oh No! Storm!',
-				category: 'Surprise',
+				category: 'Random draw game play. Cannot be edited.',
 				spaces: -rollDice()
 			},
 			{
 				title: 'Good Job!',
-				category: 'Surprise',
+				category: 'Random draw game play. Cannot be edited.',
 				spaces: 0
 			}
 		];
