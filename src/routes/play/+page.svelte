@@ -100,8 +100,56 @@
 					<h2 class="genre">Sci-Fi's Orbit</h2>
 				{:else if spaces > 31 && spaces <= 41}
 					<h2 class="genre">Cliff's of Fantasy</h2>
-				{:else if spaces > 41}
-					<h2 class="genre">You Won!</h2>
+				{:else if spaces == 41}
+					<h2 class="genre">You Won One Time!</h2>
+				{:else if spaces == 42}
+					<h2 class="genre">Starting Game 2</h2>
+				{:else if spaces > 42 && spaces <= 53}
+					<h2 class="genre">Game 2: Romance Beach</h2>
+				{:else if spaces > 53 && spaces <= 63}
+					<h2 class="genre">Game 2: Horror Woods</h2>
+				{:else if spaces > 63 && spaces <= 73}
+					<h2 class="genre">Game 2: Sci-Fi's Orbit</h2>
+				{:else if spaces > 73 && spaces <= 82}
+					<h2 class="genre">Game 2: Cliff's of Fantasy</h2>
+				{:else if spaces == 83}
+					<h2 class="genre">You Won Two Times!</h2>
+				{:else if spaces == 84}
+					<h2 class="genre">Starting Game 3</h2>
+				{:else if spaces > 84 && spaces <= 95}
+					<h2 class="genre">Game 3: Romance Beach</h2>
+				{:else if spaces > 95 && spaces <= 105}
+					<h2 class="genre">Game 3: Horror Woods</h2>
+				{:else if spaces > 105 && spaces <= 115}
+					<h2 class="genre">Game 3: Sci-Fi's Orbit</h2>
+				{:else if spaces > 115 && spaces <= 124}
+					<h2 class="genre">Game 3: Cliff's of Fantasy</h2>
+				{:else if spaces == 125}
+					<h2 class="genre">You Won Three Times!</h2>
+				{:else if spaces == 126}
+					<h2 class="genre">Starting Game 4</h2>
+				{:else if spaces > 126 && spaces <= 137}
+					<h2 class="genre">Game 4: Romance Beach</h2>
+				{:else if spaces > 137 && spaces <= 147}
+					<h2 class="genre">Game 4: Horror Woods</h2>
+				{:else if spaces > 147 && spaces <= 157}
+					<h2 class="genre">Game 4: Sci-Fi's Orbit</h2>
+				{:else if spaces > 157 && spaces <= 166}
+					<h2 class="genre">Game 4: Cliff's of Fantasy</h2>
+				{:else if spaces == 167}
+					<h2 class="genre">You Won Four Times!</h2>
+				{:else if spaces == 168}
+					<h2 class="genre">Starting Game 5</h2>
+				{:else if spaces > 168 && spaces <= 179}
+					<h2 class="genre">Game 5: Romance Beach</h2>
+				{:else if spaces > 179 && spaces <= 189}
+					<h2 class="genre">Game 5: Horror Woods</h2>
+				{:else if spaces > 189 && spaces <= 199}
+					<h2 class="genre">Game 5: Sci-Fi's Orbit</h2>
+				{:else if spaces > 199 && spaces <= 208}
+					<h2 class="genre">Game 5: Cliff's of Fantasy</h2>
+				{:else if spaces >= 209}
+					<h2 class="genre">You Won Five Times!</h2>
 				{/if}
 			</div>
 		</div>
@@ -150,89 +198,89 @@
 				<SurpriseCard {surpriseTitle} {surpriseSpaces} {modalOpen} />
 			{/if}
 
-			{#if spaces == 0}
+			{#if spaces == 0 || spaces == 42 || spaces == 84 || spaces == 126 || spaces == 168}
 				<img src={space01} alt="1 space" class="object-cover w-full h-full" />
-			{:else if spaces == 1}
+			{:else if spaces == 1 || spaces == 43 || spaces == 85 || spaces == 127 || spaces == 169}
 				<img src={space02} alt="2 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 2}
+			{:else if spaces == 2 || spaces == 44 || spaces == 86 || spaces == 128 || spaces == 170}
 				<img src={space03} alt="3 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 3}
+			{:else if spaces == 3 || spaces == 45 || spaces == 87 || spaces == 129 || spaces == 171}
 				<img src={space04} alt="4 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 4}
+			{:else if spaces == 4 || spaces == 46 || spaces == 88 || spaces == 130 || spaces == 172}
 				<img src={space05} alt="5 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 5}
+			{:else if spaces == 5 || spaces == 47 || spaces == 89 || spaces == 131 || spaces == 173}
 				<img src={space06} alt="6 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 6}
+			{:else if spaces == 6 || spaces == 48 || spaces == 90 || spaces == 132 || spaces == 174}
 				<img src={space07} alt="7 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 7}
+			{:else if spaces == 7 || spaces == 49 || spaces == 91 || spaces == 133 || spaces == 175}
 				<img src={space08} alt="8 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 8}
+			{:else if spaces == 8 || spaces == 50 || spaces == 92 || spaces == 134 || spaces == 176}
 				<img src={space09} alt="9 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 9}
+			{:else if spaces == 9 || spaces == 51 || spaces == 93 || spaces == 135 || spaces == 177}
 				<img src={space10} alt="10 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 10}
+			{:else if spaces == 10 || spaces == 52 || spaces == 94 || spaces == 136 || spaces == 178}
 				<img src={space11} alt="11 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 11}
+			{:else if spaces == 11 || spaces == 53 || spaces == 95 || spaces == 137 || spaces == 179}
 				<img src={space12} alt="12 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 12}
+			{:else if spaces == 12 || spaces == 54 || spaces == 96 || spaces == 138 || spaces == 180}
 				<img src={space13} alt="13 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 13}
+			{:else if spaces == 13 || spaces == 55 || spaces == 97 || spaces == 139 || spaces == 181}
 				<img src={space14} alt="14 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 14}
+			{:else if spaces == 14 || spaces == 56 || spaces == 98 || spaces == 140 || spaces == 182}
 				<img src={space15} alt="15 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 15}
+			{:else if spaces == 15 || spaces == 57 || spaces == 99 || spaces == 141 || spaces == 183}
 				<img src={space16} alt="16 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 16}
+			{:else if spaces == 16 || spaces == 58 || spaces == 100 || spaces == 142 || spaces == 184}
 				<img src={space17} alt="17 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 17}
+			{:else if spaces == 17 || spaces == 59 || spaces == 101 || spaces == 143 || spaces == 185}
 				<img src={space18} alt="18 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 18}
+			{:else if spaces == 18 || spaces == 60 || spaces == 102 || spaces == 144 || spaces == 186}
 				<img src={space19} alt="19 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 19}
+			{:else if spaces == 19 || spaces == 61 || spaces == 103 || spaces == 145 || spaces == 187}
 				<img src={space20} alt="20 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 20}
+			{:else if spaces == 20 || spaces == 62 || spaces == 104 || spaces == 146 || spaces == 188}
 				<img src={space21} alt="21 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 21}
+			{:else if spaces == 21 || spaces == 63 || spaces == 105 || spaces == 147 || spaces == 189}
 				<img src={space22} alt="22 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 22}
+			{:else if spaces == 22 || spaces == 64 || spaces == 106 || spaces == 148 || spaces == 190}
 				<img src={space23} alt="23 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 23}
+			{:else if spaces == 23 || spaces == 65 || spaces == 107 || spaces == 149 || spaces == 191}
 				<img src={space24} alt="24 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 24}
+			{:else if spaces == 24 || spaces == 66 || spaces == 108 || spaces == 150 || spaces == 192}
 				<img src={space25} alt="25 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 25}
+			{:else if spaces == 25 || spaces == 67 || spaces == 109 || spaces == 151 || spaces == 193}
 				<img src={space26} alt="26 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 26}
+			{:else if spaces == 26 || spaces == 68 || spaces == 110 || spaces == 152 || spaces == 194}
 				<img src={space27} alt="27 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 27}
+			{:else if spaces == 27 || spaces == 69 || spaces == 111 || spaces == 153 || spaces == 195}
 				<img src={space28} alt="28 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 28}
+			{:else if spaces == 28 || spaces == 70 || spaces == 112 || spaces == 154 || spaces == 196}
 				<img src={space29} alt="29 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 29}
+			{:else if spaces == 29 || spaces == 71 || spaces == 113 || spaces == 155 || spaces == 197}
 				<img src={space30} alt="30 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 30}
+			{:else if spaces == 30 || spaces == 72 || spaces == 114 || spaces == 156 || spaces == 198}
 				<img src={space31} alt="31 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 31}
+			{:else if spaces == 31 || spaces == 73 || spaces == 115 || spaces == 157 || spaces == 199}
 				<img src={space32} alt="32 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 32}
+			{:else if spaces == 32 || spaces == 74 || spaces == 116 || spaces == 158 || spaces == 200}
 				<img src={space33} alt="33 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 33}
+			{:else if spaces == 33 || spaces == 75 || spaces == 117 || spaces == 159 || spaces == 201}
 				<img src={space34} alt="34 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 34}
+			{:else if spaces == 34 || spaces == 76 || spaces == 118 || spaces == 160 || spaces == 202}
 				<img src={space35} alt="35 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 35}
+			{:else if spaces == 35 || spaces == 77 || spaces == 119 || spaces == 161 || spaces == 203}
 				<img src={space36} alt="36 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 36}
+			{:else if spaces == 36 || spaces == 78 || spaces == 120 || spaces == 162 || spaces == 204}
 				<img src={space37} alt="37 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 37}
+			{:else if spaces == 37 || spaces == 79 || spaces == 121 || spaces == 163 || spaces == 205}
 				<img src={space38} alt="38 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 38}
+			{:else if spaces == 38 || spaces == 80 || spaces == 122 || spaces == 164 || spaces == 206}
 				<img src={space39} alt="39 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 39}
+			{:else if spaces == 39 || spaces == 81 || spaces == 123 || spaces == 165 || spaces == 207}
 				<img src={space40} alt="40 spaces" class="object-cover w-full h-full" />
-			{:else if spaces == 40}
+			{:else if spaces == 40 || spaces == 82 || spaces == 124 || spaces == 166 || spaces == 208}
 				<img src={space41} alt="41 spaces" class="object-cover w-full h-full" />
-			{:else if spaces >= 41}
+			{:else if spaces == 41 || spaces == 83 || spaces == 125 || spaces == 167 || spaces >= 209}
 				<img src={space42} alt="42 spaces" class="object-cover w-full h-full" />
 			{/if}
 			<div class="float-container">
