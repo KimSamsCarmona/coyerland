@@ -52,12 +52,12 @@
 			},
 			{
 				title: 'Oh No! Storm!',
-				category: 'Random draw game play. Cannot be edited.',
+				category: 'Random draw during game play. Cannot be edited.',
 				spaces: -rollDice()
 			},
 			{
 				title: 'Good Job!',
-				category: 'Random draw game play. Cannot be edited.',
+				category: 'Random draw during game play. Cannot be edited.',
 				spaces: 0
 			}
 		];

@@ -12,7 +12,7 @@
 		for (let i = 0; i < books.length; i++) {
 			sum += parseInt(books[i].spaces);
 		}
-		return sum;
+		return sum < 0 ? 0 : sum;
 	}
 </script>
 
@@ -59,11 +59,11 @@
 				<div class="flex flex-col w-full ml-4 h-full justify-center">
 					<h2 class="text-3xl font-bold">Book List</h2>
 					<h3>Total Spaces = {spaces}</h3>
-               {#if books.length > 0}
-					<div class="flex items-center justify-end w-full">
-						<a href="/book-log/new" class="btn new">Log New Book</a>
-					</div>
-               {/if}
+					{#if books.length > 0}
+						<div class="flex items-center justify-end w-full">
+							<a href="/book-log/new" class="btn new">Log New Book</a>
+						</div>
+					{/if}
 				</div>
 			</div>
 			<div class="w-full mt-4 flex flex-col items-center">

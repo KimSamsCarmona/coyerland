@@ -65,7 +65,7 @@
 		for (let i = 0; i < books.length; i++) {
 			sum += parseInt(books[i].spaces);
 		}
-		return sum;
+		return sum < 0 ? 0 : sum;
 	}
 
 	onMount(() => {
@@ -90,7 +90,7 @@
 		<div class="flex-1">
 			<div>
 				<p class="location">Location</p>
-				{#if spaces <= 0}
+				{#if spaces == 0}
 					<h2 class="genre">Start</h2>
 				{:else if spaces > 0 && spaces <= 11}
 					<h2 class="genre">Romance Beach</h2>
@@ -150,7 +150,7 @@
 				<SurpriseCard {surpriseTitle} {surpriseSpaces} {modalOpen} />
 			{/if}
 
-			{#if spaces <= 0}
+			{#if spaces == 0}
 				<img src={space01} alt="1 space" class="object-cover w-full h-full" />
 			{:else if spaces == 1}
 				<img src={space02} alt="2 spaces" class="object-cover w-full h-full" />
